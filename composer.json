@@ -1,8 +1,7 @@
 {
     "name": "eightygrit/filament-sanctum",
-    "description": "Filament Sanctum",
+    "description": "Create personal access tokens for your Filament users",
     "type": "library",
-    
     "keywords": [
         "personal tokens",
         "sanctum",
@@ -22,7 +21,10 @@
     ],
     "require": {
         "laravel/sanctum": "^4.0",
-        "filament/filament": "^3.0"
+        "filament/filament": "^3.0",
+        "filament/forms": "^3.0",
+        "filament/tables": "^3.0",
+        "filament/notifications": "^3.0"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
@@ -53,7 +55,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Eightygrit\\FilamentSanctum\\SanctumServiceProvider"
+                "Eightygrit\\FilamentSanctum\\FilamentSanctumServiceProvider"
             ]
         }
     },

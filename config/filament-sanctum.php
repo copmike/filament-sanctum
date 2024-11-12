@@ -21,8 +21,8 @@ return [
 
     'columns' => 4,
     'navigation_menu' => true,
-    'user_menu' => false,
-    'label' => 'Sanctum',
-    'slug' => 'sanctum',
+    'user_menu' => true,
+    'label' => 'Personal Tokens',
+    'slug' => 'tokens',
 
 ];

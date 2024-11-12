@@ -4,13 +4,13 @@ namespace EightyGrit\FilamentSanctum\Pages;
 
 use Filament\Forms;
 use Filament\Notifications\Notification;
-use Filament\Actions\Action;
 use Filament\Pages\Page;
 use Filament\Tables;
-use Filament\Tables\Actions\BulkAction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
+use Filament\Tables\Table;
+use Filament\Actions\CreateAction;
 
 class Sanctum extends Page implements Tables\Contracts\HasTable
 {
@@ -57,14 +57,21 @@ class Sanctum extends Page implements Tables\Contracts\HasTable
         return Auth::user()->tokens()->getQuery();
     }
 
-    protected function getDefaultTableSortColumn(): ?string
+    public function table(Table $table): Table
     {
-        return 'id';
-    }
-
-    protected function getDefaultTableSortDirection(): ?string
-    {
-        return 'desc';
+        return $table
+            ->query($this->getTableQuery())
+            ->defaultSort('id', 'desc')
+            ->columns($this->getTableColumns())
+            ->bulkActions([
+                Tables\Actions\BulkAction::make('revoke')
+                    ->label(trans('Revoke'))
+                    ->action(fn(Collection $records) => $records->each->delete())
+                    ->deselectRecordsAfterCompletion()
+                    ->requiresConfirmation()
+                    ->color('danger')
+                    ->icon('heroicon-o-trash'),
+            ]);
     }
 
     protected function getTableColumns(): array
@@ -91,7 +98,7 @@ class Sanctum extends Page implements Tables\Contracts\HasTable
     protected function getActions(): array
     {
         return [
-            Action::make('new')
+            CreateAction::make('new')
                 ->label(trans('Create a new Token'))
                 ->action(function (array $data) {
                     $user = Auth::user();
@@ -115,19 +122,6 @@ class Sanctum extends Page implements Tables\Contracts\HasTable
                         ->options(config('filament-sanctum.abilities'))
                         ->columns(config('filament-sanctum.columns')),
                 ]),
-        ];
-    }
-
-    protected function getTableBulkActions(): array
-    {
-        return [
-            BulkAction::make('revoke')
-                ->label(trans('Revoke'))
-                ->action(fn(Collection $records) => $records->each->delete())
-                ->deselectRecordsAfterCompletion()
-                ->requiresConfirmation()
-                ->color('danger')
-                ->icon('heroicon-o-trash'),
         ];
     }
 }

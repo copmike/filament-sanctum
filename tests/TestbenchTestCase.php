@@ -18,6 +18,6 @@ abstract class TestbenchTestCase extends Testbench
 
     protected function getPackageProviders($app): array
     {
-        return ['Eightygrit\FilamentSanctum\SanctumServiceProvider'];
+        return ['Eightygrit\FilamentSanctum\FilamentSanctumServiceProvider'];
     }
 }
