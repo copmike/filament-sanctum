@@ -101,9 +101,13 @@ class Sanctum extends Page implements Tables\Contracts\HasTable
             CreateAction::make('new')
                 ->label(trans('Create a new Token'))
                 ->action(function (array $data) {
+                    
                     $user = Auth::user();
+                    
                     $token = $user->createToken($data['name'], $data['abilities'])->plainTextToken;
+                    
                     request()->session()->flash('sanctum-token', $token);
+                    
                     Notification::make()
                         ->title(trans('Saved successfully'))
                         ->success()
@@ -111,7 +115,7 @@ class Sanctum extends Page implements Tables\Contracts\HasTable
                         ->title(trans('Token was created successfully'))
                         ->send();
 
-                    return redirect(route('filament.pages.' . config('filament-sanctum.slug')));
+                    return redirect(static::getUrl());
                 })
                 ->form([
                     Forms\Components\TextInput::make('name')
