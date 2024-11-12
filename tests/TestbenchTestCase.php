@@ -1,6 +1,6 @@
 <?php
 
-namespace Eightygrit\FilamentSanctum\Tests;
+namespace EightyGrit\FilamentSanctum\Tests;
 
 use Orchestra\Testbench\TestCase as Testbench;
 
@@ -18,6 +18,6 @@ abstract class TestbenchTestCase extends Testbench
 
     protected function getPackageProviders($app): array
     {
-        return ['Eightygrit\FilamentSanctum\FilamentSanctumServiceProvider'];
+        return ['EightyGrit\FilamentSanctum\FilamentSanctumServiceProvider'];
     }
 }

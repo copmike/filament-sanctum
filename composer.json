@@ -33,12 +33,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Eightygrit\\FilamentSanctum\\": "src"
+            "EightyGrit\\FilamentSanctum\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Eightygrit\\FilamentSanctum\\Tests\\": "tests"
+            "EightyGrit\\FilamentSanctum\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -55,7 +55,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Eightygrit\\FilamentSanctum\\FilamentSanctumServiceProvider"
+                "EightyGrit\\FilamentSanctum\\FilamentSanctumServiceProvider"
             ]
         }
     },

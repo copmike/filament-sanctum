@@ -1,13 +1,13 @@
 <?php
 
-namespace Eightygrit\FilamentSanctum;
+namespace EightyGrit\FilamentSanctum;
 
 use Filament\Contracts\Plugin;
 use Filament\Facades\Filament;
 use Filament\Support\Assets\Css;
 use Filament\Navigation\MenuItem;
 use Filament\Support\Facades\FilamentAsset;
-use Eightygrit\FilamentSanctum\Pages\Sanctum;
+use EightyGrit\FilamentSanctum\Pages\Sanctum;
 use Filament\Panel;
 
 class FilamentPanelProvider implements Plugin

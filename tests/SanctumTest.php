@@ -1,6 +1,6 @@
 <?php
 
-namespace Eightygrit\FilamentSanctum\Tests;
+namespace EightyGrit\FilamentSanctum\Tests;
 
 use PHPUnit\Framework\TestCase;
 

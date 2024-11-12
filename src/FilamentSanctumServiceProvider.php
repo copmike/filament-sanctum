@@ -1,6 +1,6 @@
 <?php
 
-namespace Eightygrit\FilamentSanctum;
+namespace EightyGrit\FilamentSanctum;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
