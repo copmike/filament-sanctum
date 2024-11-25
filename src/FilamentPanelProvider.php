@@ -40,7 +40,7 @@ class FilamentPanelProvider implements Plugin
 				Filament::registerUserMenuItems([
 					MenuItem::make()
 						->label(trans(config('filament-sanctum.label')))
-						->url(route('filament.pages.' . config('filament-sanctum.slug')))
+                        ->url(route('filament.'. $panel->getPath() . '.pages.' . config('filament-sanctum.slug')))
 						->icon('heroicon-o-finger-print'),
 				]);
 			});
