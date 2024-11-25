@@ -36,7 +36,7 @@ class FilamentPanelProvider implements Plugin
 	{
 		// Register user menu items
 		if (config('filament-sanctum.user_menu')) {
-			Filament::serving(function () {
+			Filament::serving(function () use ($panel) {
 				Filament::registerUserMenuItems([
 					MenuItem::make()
 						->label(trans(config('filament-sanctum.label')))
